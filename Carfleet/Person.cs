@@ -28,7 +28,17 @@ namespace Carfleet
         public string Firstname { get => _firstname; set => _firstname = value; }
         public string Phonenumber { get => _phonenumber; set => _phonenumber = value; }
         public string Emailaddress { get => _emailaddress; set => _emailaddress = value; }
-        public List<string> Languages { get => _languages; set => _languages = value; }
+        public List<string> Languages
+        {
+            get
+            {
+                return _languages;
+            }
+            set
+            {
+                _languages = value;
+            }
+        }
         #endregion public methods
     }
 }

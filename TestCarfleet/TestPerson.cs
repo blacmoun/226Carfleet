@@ -34,5 +34,19 @@ namespace Carfleet
             Assert.AreEqual(_emailaddress, _person.Emailaddress);
             Assert.AreEqual(_languages, _person.Languages);
         }
+
+        [Test]
+        public void Languages_AddFirstLanguage_GetCorrectUniqueLanguage()
+        {
+            //given
+            string expectedLanguage = "French";
+            List<string> expectedLanguages = new List<string>() {expectedLanguage };
+
+            //when
+            _person.Languages = expectedLanguages;
+
+            //then
+            Assert.AreEqual(expectedLanguage, _person.Languages[0]);
+        }
     }
 }
