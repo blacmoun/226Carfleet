@@ -32,7 +32,7 @@ namespace Carfleet
             Assert.AreEqual(_firstname, _person.Firstname);
             Assert.AreEqual(_phonenumber, _person.Phonenumber);
             Assert.AreEqual(_emailaddress, _person.Emailaddress);
-            Assert.AreEqual(_languages, _person.Languages)
+            Assert.AreEqual(_languages, _person.Languages);
         }
     }
 }

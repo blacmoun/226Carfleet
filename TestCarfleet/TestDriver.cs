@@ -11,13 +11,14 @@ namespace Carfleet
         private string _phonenumber = "+4398567985093";
         private string _emailaddress = "kiss.norbert@fia.com";
         private List<string> _languages = new List<string>();
+        private string _workZone = "Spain";
         private Driver _driver;
         #endregion private attributes
 
         [SetUp]
         public void Setup()
         {
-            _driver = new Driver(_name, _firstname, _phonenumber, _emailaddress, _languages, _workZone);
+            _driver = new Driver(_name, _firstname, _phonenumber, _emailaddress, _workZone, _languages);
         }
 
         [Test]
