@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.IO.Pipes;
-using System.Threading;
 
 namespace Carfleet
 {
@@ -36,7 +34,18 @@ namespace Carfleet
             }
             set
             {
-                _languages = value;
+                if(_languages == null)
+                {
+                    _languages = new List<string>();
+                }
+
+                foreach(string newLanguage in value)
+                {
+                    if(!_languages.Contains(newLanguage))
+                    {
+                        _languages.Add(newLanguage);
+                    }
+                }
             }
         }
         #endregion public methods

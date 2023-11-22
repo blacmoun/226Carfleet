@@ -48,5 +48,83 @@ namespace Carfleet
             //then
             Assert.AreEqual(expectedLanguage, _person.Languages[0]);
         }
+
+        [Test]
+        public void Languages_AddMultipleLanguagesAtOnce_GetCorrectListOfLanguages()
+        {
+            //given
+            List<string> expectedLanguages = new List<string>() { "French", "Spanish", "German" };
+
+            //when
+            _person.Languages = expectedLanguages;
+
+            //then
+            Assert.AreEqual(expectedLanguages.Count, _person.Languages.Count);
+            foreach(string expectedLanguage in expectedLanguages)
+            {
+                bool languageExists = false;
+                if(_person.Languages.Contains(expectedLanguage))
+                {
+                    languageExists = true;
+                }
+                Assert.IsTrue(languageExists);
+            }
+        }
+
+        [Test]
+        public void Languages_AddMultipleLanguagesInExistingLanguagesList_GetCorrectListOfLanguages()
+        {
+            //given
+            List<string> initialLanguages = new List<string>() { "French", "Spanish", "German" };
+            List<string> additionnalLanguages = new List<string>() { "Vietnamese"};
+            List<string> expectedLanguages = new List<string>();
+            expectedLanguages.AddRange(initialLanguages);
+            expectedLanguages.AddRange(additionnalLanguages);
+            _person.Languages = initialLanguages;
+            Assert.AreEqual(initialLanguages.Count, _person.Languages.Count);
+
+            //when
+            _person.Languages = additionnalLanguages;
+
+            //then
+            Assert.AreEqual(expectedLanguages.Count, _person.Languages.Count);
+            foreach (string expectedLanguage in expectedLanguages)
+            {
+                bool languageExists = false;
+                if (_person.Languages.Contains(expectedLanguage))
+                {
+                    languageExists = true;
+                }
+                Assert.IsTrue(languageExists);
+            }
+        }
+
+        [Test]
+        public void Languages_AddMultipleLanguagesInExistingLanguagesListWithDuplicate_GetCorrectListOfLanguages()
+        {
+            //given
+            List<string> initialLanguages = new List<string>() { "French", "Spanish", "German" };
+            List<string> additionnalLanguages = new List<string>() { "Vietnamese" , "French" };
+            List<string> expectedLanguages = new List<string>();
+            expectedLanguages.AddRange(initialLanguages);
+            expectedLanguages.Add("Vietnamese");
+            _person.Languages = initialLanguages;
+            Assert.AreEqual(initialLanguages.Count, _person.Languages.Count);
+
+            //when
+            _person.Languages = additionnalLanguages;
+
+            //then
+            Assert.AreEqual(expectedLanguages.Count, _person.Languages.Count);
+            foreach (string expectedLanguage in expectedLanguages)
+            {
+                bool languageExists = false;
+                if (_person.Languages.Contains(expectedLanguage))
+                {
+                    languageExists = true;
+                }
+                Assert.IsTrue(languageExists);
+            }
+        }
     }
 }
