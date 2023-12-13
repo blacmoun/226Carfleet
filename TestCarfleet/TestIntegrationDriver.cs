@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using static Carfleet.Driver;
 
 namespace Carfleet
 {
@@ -72,7 +73,7 @@ namespace Carfleet
             //given
 
             //when
-            Assert.Throws<NoVehicleAssignedException>(() => _driver.TakeAVehicle(_vehicle));
+            Assert.Throws<NoVehicleAssignedException>(() => _driver.ReleaseAVehicle());
 
             //then
             //throws exception
