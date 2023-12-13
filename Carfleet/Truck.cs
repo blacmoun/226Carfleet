@@ -1,67 +1,33 @@
 ﻿using System;
 
 namespace Carfleet{
-    public class Truck
+    public class Truck:Vehicle
     {
         #region private attributes
-        private string _registration;
-        private string _brand;
-        private string _model;
-        private string _chassisNumber;
+        //TODO ???
+        private Boolean _isCarryingGoods = false;
         #endregion private attributes
 
         #region public methods
-        public Truck(string registration, string brand, string model, string chassisNumber)
+        public Truck(string registration, string brand, string model, string chassisNumber):base(registration, brand, model, chassisNumber)
         {
-            throw new NotImplementedException();
         }
 
-        public string Registration
+        public Boolean IsCarryingGoods
         {
             get
             {
-                throw new NotImplementedException();
+                return _isCarryingGoods;
             }
             set
             {
-                throw new NotImplementedException();
+                _isCarryingGoods = value;
             }
         }
 
-        public string Brand
+        public override string ToString()
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public string Model
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public string ChassisNumber
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
+            return base.ToString() + " - " + _isCarryingGoods.ToString().ToLower();
         }
         #endregion public methods
     }

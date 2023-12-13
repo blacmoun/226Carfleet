@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace Carfleet{
-    public class Car
+    public class Vehicle
     {
         #region private attributes
         private string _registration;
@@ -11,20 +11,23 @@ namespace Carfleet{
         #endregion private attributes
 
         #region public methods
-        public Car(string registration, string brand, string model, string chassisNumber)
+        public Vehicle(string registration, string brand, string model, string chassisNumber)
         {
-            throw new NotImplementedException();
+            _registration = registration;
+            _brand = brand;
+            _model = model;
+            _chassisNumber = chassisNumber;
         }
 
         public string Registration
         {
             get
             {
-                throw new NotImplementedException();
+                return _registration;
             }
             set
             {
-                throw new NotImplementedException();
+                _registration = value;
             }
         }
 
@@ -32,11 +35,11 @@ namespace Carfleet{
         {
             get
             {
-                throw new NotImplementedException();
+                return _brand;
             }
             set
             {
-                throw new NotImplementedException();
+                _brand = value;
             }
         }
 
@@ -44,11 +47,11 @@ namespace Carfleet{
         {
             get
             {
-                throw new NotImplementedException();
+                return _model;
             }
             set
             {
-                throw new NotImplementedException();
+                _model = value;
             }
         }
 
@@ -56,12 +59,17 @@ namespace Carfleet{
         {
             get
             {
-                throw new NotImplementedException();
+                return _chassisNumber;
             }
             set
             {
-                throw new NotImplementedException();
+                _chassisNumber = value;
             }
+        }
+
+        public override string ToString()
+        {
+            return this.Registration + " - " + this.Brand + " - " + this.Model + " - " + this.ChassisNumber;
         }
         #endregion public methods
     }

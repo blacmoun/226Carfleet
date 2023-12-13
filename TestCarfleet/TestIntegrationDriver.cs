@@ -1,5 +1,9 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+<<<<<<< HEAD
+=======
+using static Carfleet.Driver;
+>>>>>>> 06315cf438c1248cf52b6efc0a02be5645438e2d
 
 namespace Carfleet
 {
@@ -72,7 +76,11 @@ namespace Carfleet
             //given
 
             //when
+<<<<<<< HEAD
             Assert.Throws<NoVehicleAssignedException>(() => _driver.TakeAVehicle(_vehicle));
+=======
+            Assert.Throws<NoVehicleAssignedException>(() => _driver.ReleaseAVehicle());
+>>>>>>> 06315cf438c1248cf52b6efc0a02be5645438e2d
 
             //then
             //throws exception
